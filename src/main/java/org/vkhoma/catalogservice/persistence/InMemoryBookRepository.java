@@ -1,7 +1,7 @@
-package com.polarbookshop.catalogservice.persistence;
+package org.vkhoma.catalogservice.persistence;
 
-import com.polarbookshop.catalogservice.domain.Book;
-import com.polarbookshop.catalogservice.domain.BookRepository;
+import org.vkhoma.catalogservice.domain.Book;
+import org.vkhoma.catalogservice.domain.BookRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;

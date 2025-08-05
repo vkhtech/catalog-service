@@ -1,4 +1,4 @@
-package com.polarbookshop.catalogservice.domain;
+package org.vkhoma.catalogservice.domain;
 
 public class BookAlreadyExistsException extends RuntimeException {
 

@@ -1,6 +1,6 @@
-package com.polarbookshop.catalogservice;
+package org.vkhoma.catalogservice;
 
-import com.polarbookshop.catalogservice.config.PolarProperties;
+import org.vkhoma.catalogservice.config.PolarProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

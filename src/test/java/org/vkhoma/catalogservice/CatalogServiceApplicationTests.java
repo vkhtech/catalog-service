@@ -1,6 +1,6 @@
-package com.polarbookshop.catalogservice;
+package org.vkhoma.catalogservice;
 
-import com.polarbookshop.catalogservice.domain.Book;
+import org.vkhoma.catalogservice.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

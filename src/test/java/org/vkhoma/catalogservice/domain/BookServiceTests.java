@@ -1,4 +1,4 @@
-package com.polarbookshop.catalogservice.domain;
+package org.vkhoma.catalogservice.domain;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,7 +1,7 @@
-package com.polarbookshop.catalogservice.demo;
+package org.vkhoma.catalogservice.demo;
 
-import com.polarbookshop.catalogservice.domain.Book;
-import com.polarbookshop.catalogservice.domain.BookRepository;
+import org.vkhoma.catalogservice.domain.Book;
+import org.vkhoma.catalogservice.domain.BookRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
