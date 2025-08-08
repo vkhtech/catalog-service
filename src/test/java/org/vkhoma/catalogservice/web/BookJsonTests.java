@@ -1,12 +1,11 @@
 package org.vkhoma.catalogservice.web;
 
-import org.vkhoma.catalogservice.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
+import org.vkhoma.catalogservice.domain.Book;
 
-import java.sql.Timestamp;
 import java.time.Instant;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,7 +19,7 @@ class BookJsonTests {
     @Test
     void testSerialize() throws Exception {
         var instant = Instant.now();
-        var book = new Book(123L, "1234567890", "Title", "Author", 9.90, instant, instant, 1);
+        var book = new Book(123L, "1234567890", "Title", "Author", 9.90, "Polarsophia", instant, instant, 1);
         var jsonContent = json.write(book);
 
         assertThat(jsonContent).extractingJsonPathNumberValue("@.id")
@@ -51,6 +50,7 @@ class BookJsonTests {
                     "title": "Title",
                     "author": "Author",
                     "price": 9.90,
+                    "publisher": "Polarsophia",
                     "createdDate": "2025-08-07T00:00:00.000000Z",
                     "lastModifiedDate": "2025-08-07T00:00:00.000000Z",
                     "version": 1
@@ -58,7 +58,7 @@ class BookJsonTests {
                 """;
         assertThat(json.parse(content))
                 .usingRecursiveComparison()
-                .isEqualTo(new Book(123L,"1234567890", "Title", "Author", 9.90, instant, instant, 1));
+                .isEqualTo(new Book(123L,"1234567890", "Title", "Author", 9.90, "Polarsophia",  instant, instant, 1));
     }
 
 }
