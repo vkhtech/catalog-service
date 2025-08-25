@@ -9,7 +9,6 @@ import org.springframework.data.jdbc.core.JdbcAggregateTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.vkhoma.catalogservice.config.DataConfig;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -19,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJdbcTest
 @Import(DataConfig.class)
 @AutoConfigureTestDatabase(
-        replace = AutoConfigureTestDatabase.Replace.NON_TEST
+        replace = AutoConfigureTestDatabase.Replace.NONE
 )
 @ActiveProfiles("integration")
 class BookRepositoryJdbcTests {
@@ -34,7 +33,8 @@ class BookRepositoryJdbcTests {
     void findAllBooks() {
         var book1 = Book.of("1234561235", "Title", "Author", 12.90, "Polarsophia");
         var book2 = Book.of("1234561236", "Another Title", "Author", 12.90, "Polarsophia");
-        jdbcAggregateTemplate.insertAll(List.of(book1, book2));
+        jdbcAggregateTemplate.insert(book1);
+        jdbcAggregateTemplate.insert(book2);
 
         Iterable<Book> actualBooks = bookRepository.findAll();
 
