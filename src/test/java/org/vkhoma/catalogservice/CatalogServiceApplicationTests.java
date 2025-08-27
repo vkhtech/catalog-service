@@ -36,7 +36,7 @@ class CatalogServiceApplicationTests {
 
     @Container
     private static final KeycloakContainer keycloakContainer = new KeycloakContainer("quay.io/keycloak/keycloak:24.0")
-            .withRealmImportFile("/test-realm-config.json");
+			.withRealmImportFile("/test-realm-config.json");
 
     @DynamicPropertySource
     static void dynamicProperties(DynamicPropertyRegistry registry) {
@@ -136,7 +136,8 @@ class CatalogServiceApplicationTests {
                 .expectBody(Book.class).value(book -> assertThat(book).isNotNull())
                 .returnResult().getResponseBody();
         var bookToUpdate = new Book(createdBook.id(), createdBook.isbn(), createdBook.title(), createdBook.author(), 7.95,
-                createdBook.publisher(), createdBook.createdDate(), createdBook.lastModifiedDate(), createdBook.version());
+                createdBook.publisher(), createdBook.createdDate(), createdBook.lastModifiedDate(),
+                createdBook.createdBy(), createdBook.lastModifiedBy(), createdBook.version());
 
         webTestClient
                 .put()
